@@ -3,6 +3,7 @@ from django.urls import include, path
 
 
 
+
 urlpatterns = [
     path('', include('kalenteri.urls')),
     path('admin/', admin.site.urls),
