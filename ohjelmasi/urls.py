@@ -1,10 +1,14 @@
-from django.contrib import admin
-from django.urls import include, path
+from django.urls import path
 
+from .views import kirjattu ohjelmasi
 
 
 
 urlpatterns = [
-    path('', include('kalenteri.urls')),
-    path('admin/', admin.site.urls),
+    path('', kalenteri, name="ohjelmasi"),
+    path('ohjelmasi/<int:id/', merkitty_ohjelmasi, name="merkitty"),
 ]
+
+
+
+
