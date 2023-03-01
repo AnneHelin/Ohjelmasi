@@ -11,8 +11,6 @@ class Ohjelmasi(models.Model):
 
     Kerrottu tapahtuma
     """
-    tapahtuma = models.CharField(max_length=75)
-    alku = models.DateField()
-    tapahtuma_päivä = models.DateField(null=True)
+    
 
     
