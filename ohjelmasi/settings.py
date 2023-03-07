@@ -106,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'fi'
 
-TIME_ZONE = 'Europe/helsinki'
+TIME_ZONE = 'Europe/Helsinki'
 
 USE_I18N = True
 
