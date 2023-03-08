@@ -15,9 +15,15 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include
+from django.conf.urls import handler404
+
 from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    ]
+    path('', views.detail, name='detail'),
+    path('', include("encyclopedia.ulrs")),
+]
+
+handler404 = "encyclopedia.views.error_404"
