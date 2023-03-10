@@ -1,12 +1,15 @@
 from django.db import models
 from django.utils import timesince
 import datetime
-
+    
+class Question(models.Model):
+    question_text = models.CharField(max_length=50)
+    pub_date = models.DateTimeField(max_length=50)
 class Kalenteri(models.Model):
     day = models.DateField(max_length=5)
     text = models.CharField(max_length=50)
     
-    
+     
 class Choice(models.Model):
     question = models.ForeignKey(Kalenteri,
 on_delete=models.CASCADE)
