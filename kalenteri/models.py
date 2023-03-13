@@ -1,22 +1,19 @@
 from django.db import models
-from django.utils import timesince
-import datetime
-    
-class Question(models.Model):
-    question_text = models.CharField(max_length=50)
-    pub_date = models.DateTimeField(max_length=50)
-class Kalenteri(models.Model):
-    day = models.DateField(max_length=5)
-    text = models.CharField(max_length=50)
-    
-     
-class Choice(models.Model):
-    question = models.ForeignKey(Kalenteri,
-on_delete=models.CASCADE)
-models.CharField(max_length=30)
+from django.utils import timezone
 
-class Text(models.Model):
-    #
+import datetime
+
+class Kalenterisi(models.Model):
+    full_name = models.CharField(max_length=70)
     def __str__(self):
-        return self.text_text
+        return self. full_name
+    
+class Kalenterisi(models.Model):  
+    pub_date = models.DateField()
+    headline = models.CharField(max_length=150)
+    content = models.TextField()
+    
+
+    def __str__(self):
+        return self.headline
     

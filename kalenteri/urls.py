@@ -1,7 +1,10 @@
 from django.urls import path
-from .import views
+
+from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    
-]
+    # ex: /kalenteri
+    path('', views.Index, name='index'),      
+       
+]   
+   
