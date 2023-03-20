@@ -20,10 +20,9 @@ from django.urls import include, path
 
 
 
-from .views import etusivu
 
 urlpatterns = [
-    path('kalenteri/', include('kalenteri.urls')),
+    path('kalenteri/',  include('kalenteri.urls')),
     path('admin/' , admin.site.urls),
     
 

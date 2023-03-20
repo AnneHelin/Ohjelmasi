@@ -2,10 +2,17 @@ from django.db import models
 from django.utils import timezone
 import datetime
 
-class Day(models.Model):
-    date = models.DateField(max_length=5),
-    clock_time = models.DateTimeField(max_length=10),
-    entry_text = models.CharField(max_length=70)
+from . import models
+
+class Tapahtuma(models.Model):
+    taphtuma = models.Tapahtuma(max_lenght=70)
+    aloitusaika = models.datetime()
+
     
-def __str__(self):
-    return self.day_field 
+    def __str__(self):
+        return self.taphtuma
+    
+
+    
+
+

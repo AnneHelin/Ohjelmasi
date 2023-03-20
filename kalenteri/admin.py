@@ -1,8 +1,10 @@
 from django.contrib import admin
 
-from .models import Kalenteri
+from .models import Tapahtuma
 
-admin.site.register(Kalenteri)
+admin.site.register(Tapahtuma)
+
+
 
 
 
