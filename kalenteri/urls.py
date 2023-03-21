@@ -3,11 +3,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    # Index
+    # index: /kalenteri/
     path('', views.index, name='index'),
-    # Tapahtuma
-    path('<int:tapahtuma_id>/', views.tapahtuma, name='tapahtuma'),
-    # Aika
-    path('<int:aika_id>/', views.aloitusaika, name='aloitusaika'),
+    # index: /kalenteri/
+    path('<int:teksti_id>/', views.detail, name='detail')
     
 ]
