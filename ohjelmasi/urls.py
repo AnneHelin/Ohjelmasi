@@ -13,23 +13,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django.contrib import admin
-from django.urls import include, path
-import django.contrib.auth.urls
 
 
-from .views import etusivu
-
-
-
-urlpatterns = [
-    path('', etusivu, name="etusivu"),
-    path('tilit/', include(django.contrib.auth.urls)),
-    path('kalenteri/',  include('kalenteri.urls')),
-    path('admin/', admin.site.urls),
-    
-
-] 
 
     
    
