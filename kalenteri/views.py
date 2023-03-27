@@ -1,14 +1,20 @@
+from django.http import HttpResponse
 from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
 
+from .models import Tapahtuma
  
 
 # Create your views here.
-def ohjelmasi(request):
-    return HttpResponse('Tervetuloa kalenteriin')
-
-def ohjelmasi(request):
-    return HttpResponse('Teksti')
 
 def index(request):
-    return render(request, 'index.html')
+   return HttpResponse("Tervetuloa!")
+
+def kalenteri(request):
+   ohjelma = Tapahtuma.objects.all()
+   context = {
+       'ohjelma': ohjelma, 
+   }
+   return render(request, 'listaus.html', context)
+
+def add(request_id):
+   ohjelma = Tapahtuma.objects.get(id=id)

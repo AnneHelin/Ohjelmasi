@@ -136,3 +136,5 @@ ACCOUNT_ACTIVATION_DAYS = 1
 REGISTRETION_OPEN = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+STATIC_URL = '/static/'

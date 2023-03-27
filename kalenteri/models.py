@@ -20,6 +20,6 @@ class Tapahtuma(models.Model):
     def __str__(self):
       alku = timezone.localtime(self.alku)
       loppu = timezone.localtime(self.loppu) if self.loppu else None
-      loppu_teksti = f"{loppu:%d.%m.%Y %H:%M} -- {loppu_teksti}"
+      return  f"{alku:%d.%m.%Y %H:%M} -- {loppu}"
 
        
