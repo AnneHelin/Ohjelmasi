@@ -30,3 +30,6 @@ def kalenteri(request, tapahtuma_id):
    except Tapahtuma.DoesNotExist:
       raise Http404("Tapahtumia ei tällä sivulla")
    return render(request, 'kalenteri/kalenteri.html', {'tapahtuma': tapahtuma})   
+
+def kalenteri(request):
+   return render(request, 'index.html')

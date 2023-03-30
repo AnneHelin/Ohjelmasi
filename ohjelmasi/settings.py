@@ -138,3 +138,6 @@ REGISTRETION_OPEN = True
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 STATIC_URL = '/static/'
+STATICFILE_DIR = [
+    os.path.join(BASE_DIR, 'static')
+]
