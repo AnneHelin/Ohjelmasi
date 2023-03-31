@@ -6,6 +6,7 @@ urlpatterns = [
     path('', views.index, name= "index"),
     path('kalenteri', views.kalenteri, name= "kalenteri"),
     path('add/<int:etusivu>/<int:merkitsemissivu>',views.add, name= "add"),
+    
 
 ]
     
