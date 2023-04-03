@@ -29,7 +29,7 @@ def kalenteri(request, tapahtuma_id):
       tapahtuma = Tapahtuma.objects.get(pk=tapahtuma_id)
    except Tapahtuma.DoesNotExist:
       raise Http404("Tapahtumia ei tällä sivulla")
-   return render(request, 'kalenteri/kalenteri.html', {'tapahtuma': tapahtuma})   
-
+   return Http404('Sivua ei löydy!')
+ 
 def kalenteri(request):
    return render(request, 'index.html')
