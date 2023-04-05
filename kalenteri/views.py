@@ -1,6 +1,7 @@
-from django.http import HttpResponse
-from django.http import Http404
 from django.shortcuts import render
+from django.http import HttpResponse, JsonResponse
+from django.http import Http404
+
 from django.shortcuts import get_object_or_404, render
 
 from .models import Tapahtuma
@@ -9,7 +10,7 @@ from .models import Tapahtuma
 # Create your views here.
 
 def index(request):
-   return HttpResponse("Tervetuloa!")
+    return HttpResponse('Tervetuloa kalenteriisi'),
 
 def kalenteri(request):
    ohjelma = Tapahtuma.objects.all()
