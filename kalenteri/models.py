@@ -16,6 +16,8 @@ class Tapahtuma(models.Model):
     lisätietoja = models.CharField(max_length=200)
     alku = models.DateTimeField()
     loppu = models.DateTimeField(null=True, blank=True)
+    
+
 
     def __str__(self):
       alku = timezone.localtime(self.alku)

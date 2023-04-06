@@ -14,11 +14,5 @@ def kalenteri(request):
 def tapahtuma(request):
     return render(request,'tapahtuma.html')
 
-def kalenteri(request):
-    return render(request,'aloitusaika.html')
-
-def kalenteri(request):
-    return render(request,'lisätiedot.html')
-
-def kalenteri(request):
-    return render(request,'form.html')
+def image(request):
+    return render(request, 'image.htnl')
