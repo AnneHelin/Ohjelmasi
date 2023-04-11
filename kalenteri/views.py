@@ -8,11 +8,13 @@ from .models import Tapahtuma
  
 
 # Create your views here.
-def kalenteri(request):
-    return render(request, 'kalenteri.html')
+
 
 def tapahtuma(request):
     return render(request,'tapahtuma.html')
 
 def image(request):
     return render(request, 'image.htnl')
+
+def myforms(request):
+    return render(request,'forms.html')

@@ -5,17 +5,20 @@ from django.conf import settings
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
+# Luodaan tapahtumataulu
 
 class Tapahtuma(models.Model):
     """
     Kirjaa tapahtuma.
 
     Tapahtuma merkitään kalenteriin, lisäämällä tieto "tapahtuma"-listaan."""
-
+    # Lisätään taululle kentät
     nimi = models.CharField(max_length=100)
     lisätietoja = models.CharField(max_length=200)
     alku = models.DateTimeField()
     loppu = models.DateTimeField(null=True, blank=True)
+    kayttajatunnus = models.CharField(max_length=100)
+    salasana = models.CharField(max_length=100)
     
 
 
