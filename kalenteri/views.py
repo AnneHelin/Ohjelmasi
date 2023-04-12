@@ -16,5 +16,8 @@ def tapahtuma(request):
 def image(request):
     return render(request, 'image.htnl')
 
-def myforms(request):
-    return render(request,'forms.html')
+def myform(request):
+    return render(request,'myform.html')
+
+def submitmyform(request):
+    return render(request,'submitmyform')
