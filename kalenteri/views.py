@@ -14,10 +14,10 @@ def tapahtuma(request):
     return render(request,'tapahtuma.html')
 
 def image(request):
-    return render(request, 'image.htnl')
+    return render(request, 'image.html')
 
-def myform(request):
-    return render(request,'myform.html')
+def form(request):
+    return render(request, 'form.html')
 
-def submitmyform(request):
-    return render(request,'submitmyform')
+def submitforum(request):
+    return JsonResponse

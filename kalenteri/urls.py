@@ -6,6 +6,6 @@ from django.http import HttpResponse, JsonResponse
 urlpatterns = [
     path('', views.tapahtuma, name='tapahtuma'),
     path('tapahtuma', views.tapahtuma, name='tapahtuma'),
-    path('myform', views.myform, name='myform'),
-    path('submitmyform', views.submitmyform, name='submitmyform'),
+    path('forms', views.form, 'forms'),
+    path('submitforum', views.submitforum, name='submitforum'),
 ]
