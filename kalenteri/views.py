@@ -5,18 +5,20 @@ from django.http import Http404
 from django.shortcuts import get_object_or_404, render
 
 from .models import Tapahtuma
+import kalenteri
+
  
 
 # Create your views here.
 
 
-def tapahtuma(request):
-    return render(request,'tapahtuma.html')
+def tapahtuma(request, year, month):
+    month = month.capitalize()
+    # Convert month from name to number
+    month_number = list(kalenteri.month_name).index(month)    
+    month_number = int(month_number)
 
-def image(request):
-    return render(request, 'image.html')
+    # create a calendar
 
-def form(request):
-    return render(request, 'form.html')
-
-
+    
+ 
