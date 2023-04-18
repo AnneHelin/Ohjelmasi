@@ -16,6 +16,7 @@ def tapahtuma(request):
 def image(request):
     return render(request, 'image.html')
 
+def form(request):
+    return render(request, 'form.html')
 
-def submitforum(request):
-    return JsonResponse
+
