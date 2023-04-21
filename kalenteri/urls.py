@@ -1,13 +1,11 @@
-
-from django.conf.urls import url
-from . import views 
+from django.urls import path
+from . import views
 from django.http import HttpResponse, JsonResponse
 
-app_name = 'kalenteri'
 
 urlpatterns = [
-        url('index', views.index, name='index'),
-
+    path('', views.Tapahtuma, name='tapahtuma'),
+    path('tapahtuma', views.Tapahtuma, name='ohjelmasi'),
 ]
 
 
