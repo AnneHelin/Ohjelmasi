@@ -5,4 +5,6 @@ from django.http import Http404
 from .models import Tapahtuma
 
 # Create your views here.
+def Tapahtuma(request):
+    return HttpResponse("Tervetuloa kalenteriin!")
 
