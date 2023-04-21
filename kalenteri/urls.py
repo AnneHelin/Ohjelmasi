@@ -4,8 +4,9 @@ from django.http import HttpResponse, JsonResponse
 
 
 urlpatterns = [
-    path('', views.Tapahtuma, name='tapahtuma'),
-    path('tapahtuma', views.Tapahtuma, name='ohjelmasi'),
+    path('', views.Tapahtuma, name='index'),
+    path('tapahtuma', views.Tapahtuma, name='tapahtuma'),
+
 ]
 
 
