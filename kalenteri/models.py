@@ -25,29 +25,3 @@ class Tapahtuma(models.Model):
       loppu = timezone.localtime(self.loppu) if self.loppu else None
       return  f"{alku:%d.%m.%Y %H:%M} -- {loppu}"
 
-
-    
-    def kirjaa(self, user):
-       """Kirjataan tapahtuma
-       Palauttaa Truen, jos tapahtuman kirjaus onnistui"""
-
-       if user in self.merkitty.all():
-          return True
-       merkitty = self.merkitty.all().count()
-       if merkitty + 1 > self.tapahtuma:
-          return False
-       self.merkitty.add(user)
-       return True
-
-    def poista_merkkaus(self, user):
-       if not self.onko_merkattu(user):
-            return
-       self.merkitty.remove(user)
-
-    @property
-    def onko_tilaa(self):
-       return self.merkattu < self.Tapahtuma
-    
-    @property
-    def kirjattu(self):
-       return self.merkkaus.count()
