@@ -4,14 +4,16 @@ from django.http import HttpResponse, JsonResponse
 
 
 urlpatterns = [
-        # Path Converters
+        # path converters
         # int: numbers
-        # str: tring
+        # str: string
         # path: whole urls/
         # slug: hyphen-and_underscores_stuff
-        # UUID: universally unique identifer
-        #path(', views.tervetuloa, name="tervetuloa"),
-        path('<int:year>/<str:month>/', views.kalenteri, name="kalenteri"),
+        # UUID: universally unique idemtifier
+        path("", views.index, name='index'),
+        path('', views.kalenteri, name='kalenteri'),
+        path('<int:year> / <str:month>/', views.kalenteri, name="kalenteri"),
+            
         ]
 
 
