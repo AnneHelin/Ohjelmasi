@@ -13,17 +13,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+
+from django.urls import path
+from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path, include
-from . import views
-
-
+from kalenteri import views
 
 urlpatterns = [
-    path('', include('kalenteri.urls')),
-    path('admin/', admin.site.urls),
+  
 
 
+
+
+         
 #    path('', include('ohjelmasiapp.urls'))
    
 ]
