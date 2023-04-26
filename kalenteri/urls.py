@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse, HTMLKalenteri
 
 
 urlpatterns = [
@@ -10,7 +10,7 @@ urlpatterns = [
         # path: whole urls/
         # slug: hyphen-and_underscores_stuff
         # UUID: universally unique idemtifier
-        path("", views.index, name='index'),
+        # path('', views.index, name='index'),
         path('', views.kalenteri, name='kalenteri'),
         path('<int:year> / <str:month>/', views.kalenteri, name="kalenteri"),
             
