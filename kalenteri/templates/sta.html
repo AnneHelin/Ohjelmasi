@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+{% block titulo %}
+Biblioteca.dev | Listado de sta
+{% endblock titulo %}
+{% block extra_css %}
+<link rel=""stylesheet href="{% static 'css/temp'/datatable/datTables.bootsrap.min.css' %}">
+<link rel=""stylesheet href="{% static 'koko kalenteri/temp'/main.css' %}">
+{% endblock extra_css %}
+{% block body %}
+<div class="kalenteri">
+    <div class="kalenteri-otsikko">
+        <div class="row">
+            <div class="col-md-12">
+                <h2><strong class="kalenteri-otsikko">Voit merkitä ohjelmasi</strong></h2>
+            </div>
+        </div>
+    
+    </div>
+    <div id="kalenteri"></div>
+    
+</div>    
+
+
+{% endblock body %}
+{% block extrajs %}
+<script src="https://cdn.datatables.net/1.10.21/js/jqety.datTables.min.js"></script>
+<script src="{%static 'js/lib/data-table/datTables.bootsrap.min.is' %}"></script>
+<script src="{%staic 'kalenteri/templates/main.js'}"></script>
+<script scr="{static 'js/libro/reservas.js' %}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        var kalenteriUI = document.getElementById('kalentei')
+        var kalenteri = new fullkalenteri.kalenteri(kalenteriUI),{
+
+        kalenterirender
+    };
+</script>
+{% endblock extrajs %}
