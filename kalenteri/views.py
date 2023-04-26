@@ -1,8 +1,15 @@
+from django.http import( 
+    HttpResponse, 
+    HttpResponseBadRequest, 
+    HttpResponseNotFound
+)    
 from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
-from django.http import Http404
 
-from .models import Tapahtuma
+from .models import Kalenteri
 
-# Create your views here.
+def kalenteri(request):
+    "Tervetuloa kalenteriin!"
+    return render(request,'index.html')
 
+def kalenteri(request year, month):
+    

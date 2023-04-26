@@ -25,4 +25,3 @@ class Tapahtuma(models.Model):
       loppu = timezone.localtime(self.loppu) if self.loppu else None
       return  f"{alku:%d.%m.%Y %H:%M} -- {loppu}"
 
-       
