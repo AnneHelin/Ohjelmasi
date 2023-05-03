@@ -5,8 +5,9 @@ from django.contrib import admin
 from models import Ohjelmasi
 import datetime
 import kalenteri
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.utils.safestring import mark_safe
+from utils import Ohjelmkalenteri
 
 # Your models register here
 
@@ -36,13 +37,13 @@ class OhjelmasiAdmin(admin.ModelAdmin):
         next_month = next_month + datetime.timedelta(days=1) # The next day
         next_month = datetime.date(year=next_month.year, month=next_month.month, day=1) # Apply for the first day of the month
 
-        extra_context['prevesious_month'] = reverse('admin:kalenteri_kalenteri_listamuutos') + '?day_gte=' + str(previous_month)
-        extra_context['next_month'] = reverse('admin:kalenteri_kalenteri_listamuutos') +'?day_gte=' + str(next_month)
+        extra_context['prevesious_month'] = ('admin:kalenteri_kalenteri_listamuutos') + '?day_gte=' + str(previous_month)
+        extra_context['next_month'] = ('admin:kalenteri_kalenteri_listamuutos') +'?day_gte=' + str(next_month)
 
         cal = kalenteri()
         html_kalenteri = cal.formatmonth(day.year, day.month, withyear=True)
         html_kalenteri = html_kalenteri.replace('<td', '<td width="150" height="150"')
         extra_context['kalenteri'] = mark_safe(html_kalenteri)
-        return super(KalenteriAdmin, self).changelist_view(request, extra_context)
+        return super(kalenteri, self).changelist_view(request, extra_context)
     
-admin.site.register(kalenteri, kalenteriadmin)    
+admin.site.register(Ohjelmasi,OhjelmasiAdmin)    
