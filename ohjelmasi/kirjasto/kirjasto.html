@@ -17,7 +17,7 @@ Biblioteca.dev | Listado de sta
         </div>
     
     </div>
-    <div id="kalenteri"></div>
+    <div id="kalenteri" class="kortti" style="padding:20px;"></div>
     
 </div>    
 
@@ -30,10 +30,13 @@ Biblioteca.dev | Listado de sta
 <script scr="{static 'js/libro/reservas.js' %}"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function(){
-        var kalenteriUI = document.getElementById('kalentei')
-        var kalenteri = new fullkalenteri.kalenteri(kalenteriUI),{
+        var kalenteriUI = document.getElementById('kalenteri');
+        var kalenteri = new fullKalenteri.Kalenteri(kalenteriUI,{
 
-        kalenterirender
-    };
+        });
+        kalenteri.render();
+    });    
+    
 </script>
 {% endblock extrajs %}
+
