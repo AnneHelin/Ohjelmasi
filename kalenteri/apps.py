@@ -5,4 +5,5 @@ from django.apps import AppConfig
 
 
 class OhjelmasiConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
     name ='ohjelmasi'

@@ -2,12 +2,12 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from models import Ohjelmasi
+from models import Kalenteri
 import datetime
 import kalenteri
 from django.urls import reverse
 from django.utils.safestring import mark_safe
-from utils import Ohjelmkalenteri
+from utils import OhjelmasiKalenteri
 
 # Your models register here
 
@@ -46,4 +46,4 @@ class OhjelmasiAdmin(admin.ModelAdmin):
         extra_context['kalenteri'] = mark_safe(html_kalenteri)
         return super(kalenteri, self).changelist_view(request, extra_context)
     
-admin.site.register(Ohjelmasi,OhjelmasiAdmin)    
+admin.site.register(Kalenteri,OhjelmasiAdmin)    

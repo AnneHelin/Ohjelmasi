@@ -28,6 +28,24 @@ class OhjelmasiKalenteri(HTMLKalenteri):
             s = ''.join(self.päivämuotoilu(d, wd, ohjelmasi) for (d, wd) in viikko)
             return '<tr>%s</tr>' % s
         
-                       
+        def kuukausimuotoilu(self, kuukausi, ohjelmasi):
+            """Palauttaa kuukauden riveinä
+            """ 
+            ohjelmasi = Ohjelmasi.objects.filter(day_month=month)
+
+            v = []
+            a = v.append
+            a('<table border="0" cellpadding = "0" cellspacing="0" class="month">')
+            a('\n')
+            a(self.kuukausimuotoilu(vuosi, kuukausi, vuosi=vuosi))
+            a('\n')
+            a(self.viikkomuotoilu())
+            a('\n')
+            for viikko in self.kuukaudenpaivat2kalenteri(vuosi, kuukausi):
+                a(self.viikkomuotoilu(viikko, ohjelmasi))
+                a('\n')
+            a('</table>')
+            a('\n')
+            return '', join(v)                                
 
 

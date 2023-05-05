@@ -1,4 +1,5 @@
 """ohjelmasi URL Configuration
+
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
 Examples:
@@ -14,12 +15,11 @@ Including another URLconf
 """
 
 
+from django.conf.urls import url
 from django.contrib import admin
-from django.urls import path, include
-
 
 urlpatterns = [
-    path("kalenteri/", include('kalenteri.urls'))
+    url("admin/", admin.site.urls)
     ]
   
 
