@@ -1,4 +1,5 @@
-# from django.shortcuts import render
+from django.shortcuts import render
+from django.http import HttpResponse, JsonResponse
 # import kalenteri
 #from datetime import datetime
 from datetime import date
@@ -13,6 +14,11 @@ from django import forms
   #  month_number = int(month_number)
 
     # create  a calendar
+
+def kalenteri(reguest):
+    return HttpResponse("Tervetuloa kalenteriin!")    
+
+
 class DataSelectorWidget(forms.MultiWidget):
     def __init__(self, attrs=None):
         days = [(day, day) for day in range(1, 32)]
@@ -36,3 +42,11 @@ class DataSelectorWidget(forms.MultiWidget):
         day, month, year = super().value_from_datadict(data, files, name)     
         # DateField expects a single string that it can parse into a date.
         return "{}--{}--{}" .format(year, month, day)
+    
+    def home(request):
+        name = "Tervetuloa kalenteriin!"
+        return render(request,
+                        'home.html' , {
+                        "name" : name
+
+                      })
