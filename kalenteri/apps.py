@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.apps import AppConfig
 
-
-class OhjelmasiConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
-    name ='ohjelmasi'
+class KalenteriAppConfig(AppConfig):
+    name= "kalenteriapp"
