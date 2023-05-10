@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, intial-scale=1.0">
+
+        <script scr = "https"></script>
+
+        <title>{% block title %}{% endblock %} | Ohjelmasi</title>
+    </head>
+
+    <body> 
+        <nav class="py-10 px-10 flex justify-between items-center border-b border-gray-200">
+            <a href="/" class="Terveruloa font-semibold">Ohjelmasi</a>
+
+            <div class="space-x-10">
+                <a href="#" class="text-lg font-semibold hover:text-gray-400">Uusi kohde</a>
+                <a href="#" class="text-lg font-semibold hover:text-gray-400">Selata</a>
+
+                <a href="#" class="px-10 py-4 text-lg font-semibold bg-teal-400 text-blue rounded-xl hover:bg-teal-400">Sing up</a>
+                <a href="#" class="px-10 py-4 text-lg font-semibold bg-gray-400 text-blue rounded-xl hover:bg-gray-400">Log in</a>
+            </div>
+        </nav>
+        
+        <div class="px-10 py-10">
+            {% bloc context %}
+            {% endblock %}
+        </div>
+  
+        <footer class="py-5 px-5 flex justify-between bg-gray-400">
+            
+        </footer>
+    </body>
+</html>

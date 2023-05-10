@@ -5,7 +5,7 @@ from . import views
 
 app_name = 'kalenteri'
 urlpatterns = [
-      path('', views.index),
+      path('', views.index, name="index"),
       path("kalenteri/", views.KalenteriViewNew.as_view(), name="kalenteri"),
       path("kalenterit/", views.Kalenteriview.as_view(), name="kalenterit"),
       path("ohjelmasi/new", views.creat_ohjelmasi, name="uusi_ohjelma"),
