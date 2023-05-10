@@ -3,20 +3,27 @@ from __future__ import unicode_literals
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.urls import reverse
+from django.db.models import Model
 
+# import datetime
+import datetime
+
+# creating an instance of
+
+# datetime.date
 
 
 class Tapahtuma(models.Model):
-    day = models.DateField(u'Päivän tapahtuma', help_text=u'päivän tapahtuma')
-    start_time = models.TimeField(u'aloitusaika', help_text=u'alotusaika')
-    end_time = models.TimeField(u'lopetuaika', help_text=u'lopetusaika', blank=True, null=True)
-    notes = models.TextField(u'Textual Notes', help_text=u'Textual Notes', blank=True, null=True)
+    tapahtuma_id = models.AutoField(primary_key=True)
+    tapahtuma_nimi = models.CharField(max_length=150,null=True,blank=True)
+    alkamin_paiva = models.DateTimeField(null=True,blank=True)
+    paattymis_paiva = models.DateTimeField(null=True,blank=True)
+    tapahtuma_tyyppi = models.CharField(max_length=20,name=True,blank=True)
 
-    class Sijainti:
-        verbose_name = u'Ohjelmasi'  # Headline
-        verbose_name_plural = u'Ohjelmasi'
-
-    def tarkistaa_tapahtuman(self, alkamis_aika, loppu_aika, uusi_alku, uusi_loppu):
+    def __str__(self):
+        return self.tapahtuma_nimi
+    
+   # def tarkistaa_tapahtuman(self, alkamis_aika, loppu_aika, uusi_alku, uusi_loppu):
         samanaikainen = False
         if uusi_alku == loppu_aika or uusi_alku == loppu_aika:
             samanaikainen = False

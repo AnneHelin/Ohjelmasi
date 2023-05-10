@@ -5,6 +5,7 @@ from django.http import HttpResponse, JsonResponse
 from datetime import date
 from typing import Any, Dict, Iterable, Mapping, Optional
 from django import forms
+from .models import Tapahtuma
 
 # def kalenteri(request, year, month):
   #  name = "Tervetuloa kalenteriisi!"
@@ -18,6 +19,8 @@ from django import forms
 def kalenteri(reguest):
     return HttpResponse("Tervetuloa kalenteriin!")    
 
+def index(request):
+    return HttpResponse("Tervetuloa kalenteriin!")
 
 class DataSelectorWidget(forms.MultiWidget):
     def __init__(self, attrs=None):
