@@ -2,8 +2,6 @@
 from kalenteri import HTMLKalenteri
 from .models import Ohjelmasi
 
-
-
 class Kalenteri(HTMLKalenteri):
     def __init__(self, year= None, month=None):
         self.year = year

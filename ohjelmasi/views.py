@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import datetime
 
-def Tapahtuma(request):
+def index(request):
     return HttpResponse("Tervetuloa kalenteriisi!")
 
 def tapahtuma_view(request):
@@ -26,7 +26,11 @@ def Tapahtuma(request):
             lopetus_aika = datetime.datetime.strftime(str(i.end_date.date()), "%Y-%m-%d").strftime("%Y-%m-%d")
             tapahtuma_sub_arr['aloitus'] = aloitus_aika
             tapahtuma_sub_arr['lopetus'] = lopetus_aika
-            Tapahtuma.append(Tapahtuma)
-        return HttpResponse 
-      
-
+            Tapahtuma.append(tapahtuma_sub_arr)
+            return HttpResponse()
+        
+        context = {
+           
+        }
+        return render(request,'admin/kalenteri/tapahtuma_management.html', context)
+   

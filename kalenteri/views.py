@@ -16,11 +16,10 @@ from .models import Tapahtuma
 
     # create  a calendar
 
-def kalenteri(reguest):
-    return HttpResponse("Tervetuloa kalenteriin!")    
+   
 
 def index(request):
-    return HttpResponse("Tervetuloa kalenteriin!")
+    return render(request, 'index.html')
 
 class DataSelectorWidget(forms.MultiWidget):
     def __init__(self, attrs=None):
