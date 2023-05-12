@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Lisää Tapahtuma{% endblock %}                
+
+{% block content %}
+<div class="1-wrapper It">
+    <div class="Lisää taphtuma"
+        <div class="1-teksti">
+            <p class="p-nappi"> Lisää&nbsp;</p> <p>Tapahtuma/p>
+        </div>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            {% if messages %}
+                {% for message in message %}
+                    {{ message }}
+                {% endfor %}  
+            {% endif %}
+
+            {% for field in form %} 
+                <div class="form-control{% if field.error %}errors{% endif %}">
+                    <div class="label">{{ field.label.tag }}</div>
+                    {{ field }}
+                    {{ field.errors }}
+                </div>
+            {% endfor %}    
+       
+            <div class="nappi">
+                <button class="p-nappi" type="submit">Lisää taphtuma</button>
+            </div>
+        </form>
+    </div>
+</div>
+{{% endblock %}}
+
+
+
+
+

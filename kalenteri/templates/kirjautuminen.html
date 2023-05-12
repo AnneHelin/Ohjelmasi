@@ -1,0 +1,34 @@
+<!DOCTYPE html>>
+<html lang="fi">
+    <dic class="kirjautuminen"
+        <head>
+            {% load statis}
+            <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+        </head>
+        <body>
+            <div id="kirjautuminen" class="keskita">
+                <div class="kayttajatunnus">
+                    <form class="kirjautumis-form" action="" method="post">
+                        {% csf_token %}
+                        <scr color="aquamarine"/>
+                            <h1 class="otsikko">Kirjaudu sisään</h1>
+                            <p>Kirjautuminen omalla käyttäjätunnuksella.</p>
+                </div>
+                <section>
+                    <p>
+                        {% if message %} 
+                            {% for message in messages %}
+                                {{ message }}
+                            {% endfor %}    
+                        {% endif %}
+                    </p>
+                    </section>
+                    <input type="text" class="kirjautumis-form" name="kayttajatunnus" placeholder="käyttajatunnus"><br>
+                    <input type="salasana" class="kirjautumis-form" name="salasana"placeholder="Salasna"><br>
+                    <button type="submit" class="p-nappi">Kirjaudu sisään</button>
+                    
+                </form> 
+            </div>
+        </div>
+    </body>
+</html>

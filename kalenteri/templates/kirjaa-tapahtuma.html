@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Kirjaa tapahtuma{% endblock %}          
+
+{% block content %} 
+<div class ="1-wrapper">
+    <div class="jutut">
+        <div class="1-teksti">
+            <p>Suorita <p class="pa-la">&nbsp;kirjaa</p>
+        </div>
+
+        <from method="POST">
+            {% csrf_token %}
+            
+            {% if messages %}
+                {% for message in messages %}
+                    {{message}}  
+                {{% endforr %}}
+            </from>
+    </div>
+</div>

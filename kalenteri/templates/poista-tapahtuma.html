@@ -1,0 +1,22 @@
+{% extends "base.html" % }
+
+{% block title %}Poista {{tapahtumia.name}}{% endblock title %}
+
+{% block content %} 
+<div class="1-wrapper p-wrapper">
+    <div class="tapahtumia"
+        <div> class="1-teksti">
+            <p>Poistetaanko tapahtuma varmasti "{{tapahtuma.nimike}}"</p>
+        </div>
+
+        <form method="post">
+            {% csf_token %}
+
+            <div class ="painike">
+                <input id="poista-nappi" class="p-nappi" type="submit" value="Poista">
+                <button id="peruuta-nappi" class="p-nappi" type="button" onclick="location.href='{% url "hallinta" %}'">Peruuta</button>
+            </div>
+        </form>
+    </div> 
+</div>
+{% endblock}       
