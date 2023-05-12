@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Etusivu{% endblock %}
+
+{% block content %}
+<body>
+    <div class = "keskita"> 
+        <div class = "otsikko">
+            </br></br></br><h1 class="iso_otsikko">Tervetuloa {{ user.get_full_name | title }}</h1> </br> </br>
+        </div>
+
+        {% load static %}
+        <div class = "Kirjoita">
+                    <h2 class="valiotsikko k-otsikko"> Tapahtuma </h2>
+                    </br><p> Kirjaa tapahtuma </p>
+                </div>
+                <button type="button" class="s-nappi"><a class = "linkki" href="{% url 'lainattavat' %}"> Lainaa </a></button>
+            </div>
+
+            <div class = "lainauskortti">
+                <a href="{%url 'palautettavat' %}"><img src="{% static 'palautus.png' %}"/></a>
+                <div>
+                    <h2 class="valiotsikko k-otsikko"> Palautus </h2>
+                    </br><p> Palauta lainattuja tuotteita varastoon. </p>
+                </div>
+                <button type="button" class="p-nappi"> <a class = "linkki" href="{% url 'palautettavat' %}"> Palauta </a></button>
+            </div>
+
+            <div class = "lainauskortti">
+                <a href="{%url 'hallinta' %}"><img src="{% static 'hallinta.png' %}"/></a>
+                <div>
+                    <h2 class="valiotsikko k-otsikko"> Hallinta </h2>
+                    </br><p> Muokkaa, lisää tai poista varastossa olevia tuotteita. </p>
+                </div>
+                <button type="button" class="h-nappi"><a href="{% url 'hallinta' %}"> Hallitse </a></button>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
