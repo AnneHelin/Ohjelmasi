@@ -1,9 +1,6 @@
-import datetime
+from __future__ import unicode_literals
 
 from django.db import models
-from django.conf import settings
-from django.utils import timezone
-from django.utils.translation import gettext_lazy as _
 
 # Luodaan tapahtumataulu
 
@@ -17,11 +14,18 @@ class Tapahtuma(models.Model):
     lisätieto = models.TextField()
     aloitus = models.DateTimeField()
     lopetus = models.DateTimeField()
-    
 
+    # Check overlap
+    def check_overlap(self, korjattu_aloitus, korjattu_lopetus, seuraava_alku, seuraava_lopetus):
+        samaan_aikaan = False
+        if seuraava_alku == korjattu_lopetus or seuraava_lopetus == korjattu_aloitus:
+          samaan_aikaan = False
+        elif (seuraava_alku >= korjattu_aloitus and seuraava_alku <=korjattu_lopetus) or (seuraava_lopetus >= korjattu_aloitus and seuraava_lopetus <=seuraava_lopetus):
+          samaan_aikaan = True
+        elif seuraava_alku <= korjattu_aloitus and seuraava_lopetus >= korjattu_lopetus: 
+          samaan_aikaan = True
 
-    def __str__(self):
-      alku = timezone.localtime(self.alku)
-      loppu = timezone.localtime(self.loppu) if self.loppu else None
-      return  f"{alku:%d.%m.%Y %H:%M} -- {loppu}"
+          return samaan_aikaan
 
+       
+        
