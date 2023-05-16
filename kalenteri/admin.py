@@ -1,6 +1,6 @@
 # Ladataan admin-tiedostoon tapahtumataulu
 import datetime
-from typing import Dict, Optional
+
 
 from django.contrib import admin
 from django.http.request import HttpRequest
@@ -10,10 +10,11 @@ from django.urls import reverse
 
 from .models import Tapahtuma
 
+
 @admin.register(Tapahtuma)
 class TapahtumaAdmin(admin.ModelAdmin):
-    list_display = ['paiva', 'alkamis_aika', 'loppu_aika', 'tarkenne']
-    change_list_template = 'admin/tapahtuma/change_list.html'
+    # list_display = ['paiva', 'alkamis_aika', 'loppu_aika', 'tarkenne']
+    # change_list_template = 'admin/tapahtuma/change_list.html'
 
     def change_view(self, request, extra_context=None):
         after_day = request.GET.get('paiva_gte', None)

@@ -10,14 +10,13 @@ class Migration(migrations.Migration):
     dependencies = [
     ]
 
-    operations = [
-        migrations.CreateModel(
-            name='Tapahtuma',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('otsikko', models.CharField(max_length=150)),
-                ('lisätieto', models.TextField()),
-               
-            ],
-        ),
+    
+    dependencies = [
+
     ]
+
+    operations = []
+        
+           
+
+    
