@@ -1,7 +1,10 @@
 from django.shortcuts import render
-import kalenteri
-from kalenteri import HTMLKalenteri
+#import kalenteri
 from datetime import datetime
+from django.http import HttpResponse
+
+def index(request, kalenteri_id):
+    return HttpResponse("Tervetuloa kalenteriin!")
 
 
 def kalenteri(request, year, month):
@@ -12,7 +15,7 @@ def kalenteri(request, year, month):
     month_number = int(month_number)
 
     # create  a calendar
-    cal = HTMLKalenteri().formatmonth(
+    cal = HttpResponse().formatmonth(
         year,
         month_number)
     # Get current year
@@ -26,3 +29,9 @@ def kalenteri(request, year, month):
                     "month_number" : month_number,
                     "current_year": current_year,
                   })
+
+# def kalenteri(request, Model):
+#     return self.date >= timezone.now()
+#     datetime.timedelta(days=1)
+
+
