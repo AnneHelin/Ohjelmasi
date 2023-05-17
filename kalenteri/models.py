@@ -1,7 +1,9 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.utils import timezone
 
+import datetime
 # Luodaan tapahtumataulu
 
 class Tapahtuma(models.Model):
@@ -11,9 +13,14 @@ class Tapahtuma(models.Model):
     Tapahtuma merkitään kalenteriin, lisäämällä tieto "tapahtuma"-listaan."""
     # Lisätään taululle kentät
     otsikko = models.CharField(max_length=150)
-    lisätieto = models.TextField()
+    lisätieto = models.TextField(max_length=250)
     aloitus = models.DateTimeField()
     lopetus = models.DateTimeField()
+    blank=True
+
+    def __str__(self):
+       aloitus =  timezone.localtime(self.aloitus)
+       lopetus = timezone.localtime(self.lopetus) if self.lopetus else None
 
     # Check overlap
     def check_overlap(self, korjattu_aloitus, korjattu_lopetus, seuraava_alku, seuraava_lopetus):
@@ -26,6 +33,23 @@ class Tapahtuma(models.Model):
           samaan_aikaan = True
 
           return samaan_aikaan
+
+    def get_absolute_url(self):
+       url = reversed('admin:%s_%s_change' % (self._meta.app_label, self._meta.model_name), args=[self.id])
+       return u'<a href= "%s">%s</a>' % (url, str(self.aloitus_aika))
+    
+    def clean(self):
+      if self.lopetus_aika <= self.aloitus_aika:
+            raise ValueError('The end time must be later than the start time')
+       
+      ohjelma = ohjelma.object.filter(day=self.day)
+      if ohjelma.exists():
+         for ohjelma in ohjelma:
+            if self.check_overlap(ohjelma.aloitus_aika, ohjelma.lopetus_aika, self.aloitus_aika, self.lopetus_aika):
+              raise ValueError(
+                 'There is overlap with another program: ' + str(ohjelma.paiva) + ',' + str(
+                 ohjelma.alkamis_aika) + '-' + str(ohjelma.loppu_aika))
+                 
 
        
         

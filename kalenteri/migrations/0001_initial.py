@@ -8,14 +8,22 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-    ]
-
-    
-    dependencies = [
 
     ]
 
-    operations = []
+    operations = [
+        migrations.CreateModel(
+        name='Ohjelmasi',
+        fields=[
+            ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+            ('otsikko', models.CharField(max_length=150)),
+            ('lisätieto', models.TextField()),
+            ('aloitus', models.DateField()),
+            ('lopeetus', models.DateTimeField()),
+
+        ],
+        ),
+    ]
         
            
 

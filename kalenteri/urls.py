@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
-from django.http import HttpResponse, JsonResponse, HTMLKalenteri
+
+
 
 
 urlpatterns = [
@@ -12,8 +13,9 @@ urlpatterns = [
         # UUID: universally unique idemtifier
         # path('', views.index, name='index'),
         path("" , views.index, name="index"),
-        path('', views.kalenteri, name="kalenteri"),
-        path('<int:year> / <str:month> / <str:day>', views.kalenteri, name='kalenteri'),
+
+        # path('', views.kalenteri, name="kalenteri"),
+       # path('<int:year> / <str:month> / <str:day>', views.kalenteri, name='kalenteri'),
         
         # path('<int:year> / <str:month>/ / <str:day>', views.home, name="kalenteri"),
         ]       

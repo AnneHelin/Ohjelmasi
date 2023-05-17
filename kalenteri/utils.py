@@ -4,7 +4,7 @@ import datetime
 from models import Tapahtuma
 
 class TapahtumaKalenteri(HTMLKalenteri):
-    def _init(self, tapahtuma=None):
+    def _init__(self, tapahtuma=None):
         super(TapahtumaKalenteri, self).__init__()
         self.tapahtuma = tapahtuma
 
