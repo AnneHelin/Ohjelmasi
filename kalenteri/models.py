@@ -14,8 +14,8 @@ class Tapahtuma(models.Model):
     # Lisätään taululle kentät
     otsikko = models.CharField(max_length=150)
     lisätieto = models.TextField(max_length=250)
-    aloitus = models.DateTimeField()
-    lopetus = models.DateTimeField()
+    aloitusaika = models.DateTimeField()
+    lopetusaika = models.DateTimeField()
     blank=True
 
     def __str__(self):
@@ -48,7 +48,7 @@ class Tapahtuma(models.Model):
             if self.check_overlap(ohjelma.aloitus_aika, ohjelma.lopetus_aika, self.aloitus_aika, self.lopetus_aika):
               raise ValueError(
                  'There is overlap with another program: ' + str(ohjelma.paiva) + ',' + str(
-                 ohjelma.alkamis_aika) + '-' + str(ohjelma.loppu_aika))
+                 ohjelma.aloitus_aika) + '-' + str(ohjelma.lopetus_aika))
                  
 
        
