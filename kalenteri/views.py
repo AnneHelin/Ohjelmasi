@@ -1,34 +1,71 @@
 from django.shortcuts import render
 #import kalenteri
 from datetime import datetime
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseNotFound
+from django.utils import timezone
+import calendar
+# import module
 
+from .models import Tapahtuma
 
-def index(request_id):
-      return HttpResponse("Tervetuloa kalenteriin!")
+months = {
+     1: "tammikuu",
+     2: "helmikuu",
+     3: "maaliskuu",
+     4: "huhtikuu",
+     5: "toukokuu",
+     6: "kesäkuu",
+     7: "heinäkuu",
+     8:  "elokuu",
+     9:  "syyskuu",
+     10: "lokakuu",
+     11: "marrasku",
+     12: "joulukuu",
+     }
 
+    
 
-def ohjelmasi(request, year, month):
+def index(request, year=None, month=None):
+    if not year:
+        year = timezone.now().year
+    if not month:
+        month = timezone.now().month
     name = "Tervetuloa kalenteriisi!"
-    month = month.capitalize()
+    month_name = months[month].capitalize()
     # Convert month from name to number
-    month_number = list(ohjelmasi.month.name).index(month)
-    month_number = int(month_number)
+
+    Tapahtuma.objects.all()
+
+def etusivu(request, id):
+    try:
+        tapahtuma = Tapahtuma.objects.get(id=id)
+    except Tapahtuma.DoesNotExist:
+        return HttpResponseNotFound(f"Tapahtuma {id} ei löydy.")
+         
+    if request.method == "POST":
+        tapahtuma = request.POST.get("toiminto")
+        if tapahtuma == "merkitse_merkatuksi":
+            tapahtuma.merkattu = True
+            tapahtuma.save()
+        else:
+            return HttpResponseBadRequest("Tuntematon toiminto")
+        return render(request, "tervetuloa.html", context={"tapahtuma": tapahtuma })
 
     # create  a calendar
-    cal = HttpResponse().formatmonth(
-        year,
-        month_number)
+    # cal = HttpResponse().formatmonth(
+    #     year,
+    #     month_number)
     # Get current year
-    now = datetime.now() 
-    current_year = now.year
+    # now = datetime.now() 
+    # current_year = now.year
     return render(request,
                     'tervetuloa.html', {
                     "name" : name,
                     "year" : year,
-                    "month" : month,
-                    "month_number" : month_number,
-                    "current_year": current_year,
+                    "month" : month_name,
+                    "month_number" : month,
+                    "current_year": timezone.now().year,
+                    "kalenteri_taulukko": calendar.HTMLCalendar().formatmonth(2023, 5),
                   })
 
 def kirjaa_ohjelmasi(request):
@@ -41,7 +78,7 @@ def kirjaa_ohjelmasi(request):
                kirjattu = ohjelmasi.kirjaa(request.user)
                context["kirjattu"] = kirjattu
         elif toiminto == "peru":
-             ohjelmasi.poista_kkirjaus(request.user)
+             ohjelmasi.poista_kirjaus(request.user)
              context["kirjattu"] = False
         else:
              raise ValueError(f"Tuntematon toiminto: {toiminto}")
