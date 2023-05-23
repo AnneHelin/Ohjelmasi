@@ -13,6 +13,7 @@ urlpatterns = [
         # UUID: universally unique idemtifier
         # path('', views.index, name='index'),
         path("" , views.index, name="index"),
+        
 
         # path('', views.kalenteri, name="kalenteri"),
        # path('<int:year> / <str:month> / <str:day>', views.kalenteri, name='kalenteri'),

@@ -4,6 +4,7 @@ from django.db import models
 from django.utils import timezone
 
 import datetime
+
 # Luodaan tapahtumataulu
 
 class Tapahtuma(models.Model):

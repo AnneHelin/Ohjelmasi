@@ -1,13 +1,14 @@
-<center>
-<h1>Tervetuloa{{ Tähän voit merkitä tapahtumia }}! Tapahtumat {{  month }} {{ year }}</h1>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>    
+</head>
+</html>
 
-{{ month_number }}
+<h1>Tervetuloa kalenteriisi</h1>
+<p>Tähän voit merkitä tapahtumiasi</p>
+{{month}}
 
-As of {{ time }}
-<br/><br/>
-
-{{ cal|safe}}
-<br/><br/><br/><br/>
-copyright (c) {{ current_year }}
-
-</center>
+{{kalenteri_taulukko|safe}}
+</body>
+</html>
