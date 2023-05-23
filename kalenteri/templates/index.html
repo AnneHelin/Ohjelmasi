@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-body {background-color: aqua;}
-h1 {color: bisque;}
-p {color:aliceblue}
-</style>    
-</head>
-<body>
-
-<h1>Tervetuloa kalenterriisi</h1>
-<p>Kirjoita tapahtumiasi</p>
-
-</body>    
-</html>
+{% if viimeine_tapahtuma_listassa %}                        
+    <ul>
+    {% for tapahtuma in viimeinen_tapahtuma_listassa %}
+        <li><a href="{% url /kalenteri/{{ tapahtuma.id }}/">{{ <tapahtuma.tapahtuma }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}         
+    <p>Voit merkitä tapahtumia.</p>
+{% endif %}    

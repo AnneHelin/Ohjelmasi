@@ -4,7 +4,10 @@ from datetime import datetime
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseNotFound
 from django.utils import timezone
 import calendar
-# import module
+from django.template import loader
+from django.http import Http404
+
+
 
 from .models import Tapahtuma
 
@@ -24,7 +27,13 @@ months = {
      }
 
     
-
+def index(request):
+    last_Tapahtuma_list = Tapahtuma.objects.order_by
+    template = loader.get_template("kalenteri/index.html")
+    context = {"last_Tapahtuma_list": last_Tapahtuma_list,
+    }
+    return HttpResponse(template.render(context, request))
+           
 def index(request, year=None, month=None):
     if not year:
         year = timezone.now().year
@@ -89,4 +98,9 @@ def kirjaa_ohjelmasi(request):
 #     return self.date >= timezone.now()
 #     datetime.timedelta(days=1)
     
-
+def paivays(request, tapahtuma_id):
+    try:
+        tapahtumna = Tapahtuma.objects.get(pk=tapahtuma_id)
+    except Tapahtuma.DoesNotExist:
+        raise Http404("Sivulla ei tapahtumia")
+    return render(request, "kalenteri/detail.html", {"tapahtuma" : tapahtumna})
