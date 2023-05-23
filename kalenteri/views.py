@@ -60,10 +60,7 @@ def etusivu(request, id):
     # current_year = now.year
     return render(request,
                     'tervetuloa.html', {
-                    "name" : name,
-                    "year" : year,
-                    "month" : month_name,
-                    "month_number" : month,
+                    
                     "current_year": timezone.now().year,
                     "kalenteri_taulukko": calendar.HTMLCalendar().formatmonth(2023, 5),
                   })
