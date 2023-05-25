@@ -15,7 +15,6 @@ urlpatterns = [
         path("" , views.index, name="index"),
         path("<int:year_id/", views.etusivu, name='etusivu'),
         path("<int:month_id/", views.etusivu, name='etusivu'),
-        path("<int:day_id/", views.day, name='day'),
         path('<request/', views.kirjaa_ohjelmasi, name='kirjaa_ohjelmasi'),
 
         # path('', views.kalenteri, name="kalenteri"),
