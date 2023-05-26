@@ -2,6 +2,7 @@ from kalenteri import HTMLKalenteri
 from datetime import datetime as dtime, date, time
 import datetime
 from models import Tapahtuma
+from django import utils
 
 class TapahtumaKalenteri(HTMLKalenteri):
     def _init__(self, tapahtuma=None):
@@ -24,3 +25,6 @@ class TapahtumaKalenteri(HTMLKalenteri):
 
     def formatweek(self, theweek, events):
         pass
+
+    
+        
