@@ -20,6 +20,14 @@ class Tapahtuma(models.Model):
     blank=True
 
     def __str__(self):
+       return self.otsikko
+    
+    @property
+    def get_html_url(self):
+       url = reversed('cal:kalenteri', args=(self.slug,))
+       return f'<a href="{url}">'
+    
+    def __str__(self):
        aloitus =  timezone.localtime(self.aloitus)
        lopetus = timezone.localtime(self.lopetus) if self.lopetus else None
 
@@ -41,7 +49,7 @@ class Tapahtuma(models.Model):
     
     def clean(self):
       if self.lopetus_aika <= self.aloitus_aika:
-            raise ValueError('The end time must be later than the start time')
+            raise ValueError('The end time must be later than the start time')  
        
       ohjelma = ohjelma.object.filter(day=self.day)
       if ohjelma.exists():
@@ -50,7 +58,8 @@ class Tapahtuma(models.Model):
               raise ValueError(
                  'There is overlap with another program: ' + str(ohjelma.paiva) + ',' + str(
                  ohjelma.aloitus_aika) + '-' + str(ohjelma.lopetus_aika))
-                 
+            
+class Datemodels(models.Model):
+    date = models.DateTimeField(input_models=['%d/%m/%Y %H:%M'])         
 
        
-        
