@@ -77,6 +77,7 @@ def etusivu(request, id):
 def kirjaa_ohjelmasi(request):
     ohjelmasi = ohjelmasi.objects.get(id=id)
     context = {'ohjelmasi' : ohjelmasi}
+    return render
 
     if request.method == "POST":
         toiminto = request.POST.get("toiminto", "merkitse")
